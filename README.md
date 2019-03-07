@@ -1,17 +1,16 @@
 callback-timeout
 ================
 
-[![NPM version](https://badge.fury.io/js/callback-timeout.png)](http://badge.fury.io/js/callback-timeout)
-[![Build Status](https://travis-ci.org/jasonpincin/callback-timeout.svg?branch=master)](https://travis-ci.org/jasonpincin/callback-timeout)
-[![Coverage Status](https://coveralls.io/repos/jasonpincin/callback-timeout/badge.png?branch=master)](https://coveralls.io/r/jasonpincin/callback-timeout?branch=master)
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/jp-callback-timeout.svg)](https://saucelabs.com/u/jp-callback-timeout)
+This is a fork of https://github.com/jasonpincin/callback-timeout. The primary difference is that `setImmediate` is used directly after a `setTimeout` to cause the timeout callback to occur **after** IO operations in the node event loop. 
+
+[![Build Status](https://travis-ci.org/mapbox/callback-timeout.svg?branch=master)](https://travis-ci.org/mapbox/callback-timeout)
 
 Executes callback with single error argument if timeout is exceeded before it's called naturally
 
 ## example
 
 ``` js
-var timeout = require('callback-timeout')
+var timeout = require('@mapbox/callback-timeout')
 
 function doSomethingFast(cb) { setTimeout(cb, 100) }
 function doSomethingSlow(cb) { setTimeout(cb, 2000) }
@@ -35,8 +34,8 @@ doSomethingSlow(timeout(function doSomethingSlowHandler (err) {
 ## usage
 
 ``` js
-var timeout      = require('callback-timeout'),
-    TimeoutError = require('callback-timeout/errors').TimeoutError
+var timeout      = require('@mapbox/callback-timeout'),
+    TimeoutError = require('@mapbox/callback-timeout/errors').TimeoutError
 ```
 
 ### timeout(callback [, ms, msg])
@@ -53,7 +52,7 @@ TimeoutError objects will have a `code` property with the value `ETIMEDOUT`.
 With [npm](https://npmjs.org) do:
 
 ```
-npm install callback-timeout
+npm install \@mapbox/callback-timeout
 ```
 
 ## testing

@@ -1,5 +1,5 @@
 {
-  "name": "callback-timeout",
+  "name": "@mapbox/callback-timeout",
   "version": "4.0.0",
   "description": "Invokes callback with single error argument if timeout occurs before it's invoked by other means",
   "main": "index.js",
@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jasonpincin/callback-timeout.git"
+    "url": "git://github.com/mapbox/callback-timeout.git"
   },
-  "homepage": "https://github.com/jasonpincin/callback-timeout",
+  "homepage": "https://github.com/mapbox/callback-timeout",
   "keywords": [
     "callback",
     "timeout"

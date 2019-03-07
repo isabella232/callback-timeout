@@ -2,8 +2,12 @@ var errors = require('./errors')
 
 module.exports = function callbackTimeout (f, t, e) {
   if (!t) return f
-  var timer = setTimeout(onTimeout, t)
+  var timer = setTimeout(immediateTimeout, t)
   return callback
+
+  function immediateTimeout () {
+    setImmediate(onTimeout)
+  }
 
   function onTimeout () {
     timer = null

@@ -3,7 +3,7 @@ var timeout      = require('..')
 var TimeoutError = require('../errors').TimeoutError
 
 test('with timeouts given', function _ (t) {
-  t.plan(5)
+  t.plan(6)
 
   function doSomethingFast (cb) { setTimeout(cb, 100) }
   function doSomethingSlow (cb) { setTimeout(cb, 2000) }
@@ -28,5 +28,10 @@ test('with timeouts given', function _ (t) {
     t.ok(err instanceof TimeoutError, 'error is a TimeoutError')
     t.equals(err.name, 'TimeoutError', 'error.name is TimeoutError')
   }, 250))
+
+  doSomethingSlow(timeout(function (err) { // eslint-disable-line func-names
+    t.ok(err === null,
+      'null returned in case of case error message being set to false')
+  }, 250, false))
 })
 
