@@ -1,3 +1,5 @@
+## :warning: DEPRECATED :warning: please use https://github.com/jasonpincin/callback-timeout.
+
 callback-timeout
 ================
 
